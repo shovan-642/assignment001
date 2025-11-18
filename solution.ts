@@ -104,11 +104,40 @@ function printBookDetails(book: Book): void {
 
 
 
-const myBook: Book = {
-  title: 'The Great Gatsby',
-  author: 'F. Scott Fitzgerald',
-  publishedYear: 1925,
-  isAvailable: true,
-};
+// const myBook: Book = {
+//   title: 'The Great Gatsby',
+//   author: 'F. Scott Fitzgerald',
+//   publishedYear: 1925,
+//   isAvailable: true,
+// };
 
-printBookDetails(myBook);
+// printBookDetails(myBook);
+
+
+function getUniqueValues(
+  array1: (number | string)[], 
+  array2: (number | string)[]): (number | string)[] {
+  const combined = [...array1, ...array2]
+  const unique: (number | string)[] = []
+
+  for (const item of combined){
+    let isFound = false; 
+    for (const  value of unique){
+      if(value === item){
+        isFound = true; 
+        break;
+
+      }
+    }
+
+    if(!isFound){
+      unique.push(item);
+    }
+  }
+  return unique;
+}
+
+
+// const array1 = [1, 2, 3, 4, 5];
+// const array2 = [3, 4, 5, 6, 7];
+// console.log(getUniqueValues(array1, array2));
