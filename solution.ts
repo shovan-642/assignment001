@@ -8,9 +8,7 @@ function formatValue (value: string | number | boolean) : string | number | bool
   else return !value
 }
 
-// console.log(formatValue('hello'));
-// console.log(formatValue(5));
-// console.log(formatValue(true));
+
 
 
 
@@ -22,8 +20,7 @@ function getLength(input: string | any[]): number{
   return input.length
 }
 
-// console.log(getLength('typescript'));
-// console.log(getLength([10, 20, 30, 40]));
+
 
 class Person {
   name: string;
@@ -41,11 +38,6 @@ class Person {
 }
 
 
-// const person1 = new Person('John Doe', 30);
-// console.log(person1.getDetails());
-
-// const person2 = new Person('Alice', 25);
-// console.log(person2.getDetails());
 
 
 type RatedItem = {
@@ -58,13 +50,7 @@ function filterByRating(items: RatedItem[]): RatedItem[]{
   return filteredItems;
 }
 
-// const books = [
-//   { title: 'Book A', rating: 4.5 },
-//   { title: 'Book B', rating: 3.2 },
-//   { title: 'Book C', rating: 5.0 },
-// ];
 
-// console.log(filterByRating(books))
 
 
 type User = {
@@ -79,13 +65,6 @@ function filterActiveUsers(users: User[]): User[] {
   return active;
 }
 
-// const users = [
-//   { id: 1, name: 'Rakib', email: 'rakib@example.com', isActive: true },
-//   { id: 2, name: 'Asha', email: 'asha@example.com', isActive: false },
-//   { id: 3, name: 'Rumi', email: 'rumi@example.com', isActive: true },
-// ];
-
-// console.log(filterActiveUsers(users));
 
 interface Book {
   title: string;
@@ -104,14 +83,6 @@ function printBookDetails(book: Book): void {
 
 
 
-// const myBook: Book = {
-//   title: 'The Great Gatsby',
-//   author: 'F. Scott Fitzgerald',
-//   publishedYear: 1925,
-//   isAvailable: true,
-// };
-
-// printBookDetails(myBook);
 
 
 function getUniqueValues(
@@ -138,6 +109,26 @@ function getUniqueValues(
 }
 
 
-// const array1 = [1, 2, 3, 4, 5];
-// const array2 = [3, 4, 5, 6, 7];
-// console.log(getUniqueValues(array1, array2));
+
+type Product = {
+  name: string;
+  price: number;
+  quantity: number;
+  discount: number;
+}
+
+function calculateTotalPrice(products: Product[]): number {
+  if(!products.length){
+    return 0;
+  }
+  let total = 0;
+
+  for (const product of products) {
+    const discount = product.discount ? product.discount : 0;
+    const priceAfterDiscount = product.price - (product.price * discount)/100
+
+    total += priceAfterDiscount * product.quantity;
+  }
+  return total;
+}
+
